@@ -1,0 +1,12 @@
+/* Utility classes for spacing and layout */
+.mt-2 { margin-top: 16px; }
+.mb-2 { margin-bottom: 16px; }
+.p-2 { padding: 16px; }
+.text-center { text-align: center; }
+.rounded { border-radius: 8px; }
+.shadow { box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+
+/* Theme helpers */
+.bg-paper { background: var(--color-bg-paper); }
+.bg-main { background: var(--color-bg); }
+.text-main { color: var(--color-text); }

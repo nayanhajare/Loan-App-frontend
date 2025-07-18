@@ -1,0 +1,45 @@
+/* Theme-aware CSS variables for light/dark mode */
+:root {
+  --color-bg: #f5f6fa;
+  --color-bg-paper: #fff;
+  --color-text: #222;
+  --color-primary: #1976d2;
+  --color-link: #1976d2;
+  --color-link-hover: #1565c0;
+}
+[data-theme='dark'] {
+  --color-bg: #181a1b;
+  --color-bg-paper: #23272f;
+  --color-text: #f5f6fa;
+  --color-primary: #90caf9;
+  --color-link: #90caf9;
+  --color-link-hover: #64b5f6;
+}
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: 'Inter', system-ui, Avenir, Helvetica, Arial, sans-serif;
+  transition: background 0.3s, color 0.3s;
+}
+a {
+  color: var(--color-link);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+a:hover {
+  color: var(--color-link-hover);
+}
+button, input, select, textarea {
+  font-family: inherit;
+}
+.MuiPaper-root {
+  background: var(--color-bg-paper) !important;
+  color: var(--color-text) !important;
+  transition: background 0.3s, color 0.3s;
+  }
+.MuiButton-containedPrimary {
+  background: var(--color-primary) !important;
+  }
