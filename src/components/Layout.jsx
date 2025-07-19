@@ -1,14 +1,9 @@
 import React from 'react';
 import { AppBar, Toolbar, Typography, Box, Container, Switch, Button, useTheme, IconButton, Drawer, List, ListItem, ListItemButton, ListItemText, Divider } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
-import NotificationsIcon from '@mui/icons-material/Notifications';
-import Menu from '@mui/material/Menu';
-import MenuItem from '@mui/material/MenuItem';
-import Badge from '@mui/material/Badge';
 import { useThemeMode } from '../context/ThemeContext';
 import { Outlet, Link, useLocation, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
-import { useNotification } from '../components/NotificationProvider';
 
 const navLinks = [
   { to: '/dashboard', label: 'Dashboard', roles: ['user', 'admin'] },
@@ -26,11 +21,6 @@ const Layout = () => {
   const navigate = useNavigate();
   const theme = useTheme();
   const [drawerOpen, setDrawerOpen] = React.useState(false);
-  const { notifications } = useNotification();
-  const [anchorEl, setAnchorEl] = React.useState(null);
-  const handleBellClick = (event) => setAnchorEl(event.currentTarget);
-  const handleBellClose = () => setAnchorEl(null);
-  const unreadCount = notifications.length;
 
   // Determine links to show based on user role
   let linksToShow = [];
@@ -113,24 +103,6 @@ const Layout = () => {
           <Box sx={{ display: { xs: 'none', md: 'flex' }, gap: 2, alignItems: 'center' }}>
             {user ? renderNavLinks() : renderAuthLinks()}
             {user && <Button color="inherit" onClick={logout} sx={{ ml: 2 }}>Logout</Button>}
-            <IconButton color="inherit" onClick={handleBellClick} sx={{ ml: 1 }}>
-              <Badge badgeContent={unreadCount} color="error">
-                <NotificationsIcon />
-              </Badge>
-            </IconButton>
-            <Menu anchorEl={anchorEl} open={Boolean(anchorEl)} onClose={handleBellClose} PaperProps={{ sx: { minWidth: 320 } }}>
-              <Box px={2} py={1} fontWeight={700}>Notifications</Box>
-              {notifications.length === 0 ? (
-                <MenuItem disabled>No notifications</MenuItem>
-              ) : notifications.slice(0, 10).map(n => (
-                <MenuItem key={n.id} sx={{ whiteSpace: 'normal', alignItems: 'flex-start' }}>
-                  <Box>
-                    <Typography variant="body2" color={n.severity === 'error' ? 'error.main' : n.severity === 'success' ? 'success.main' : 'text.primary'} fontWeight={600}>{n.message}</Typography>
-                    <Typography variant="caption" color="text.secondary">{new Date(n.timestamp).toLocaleString()}</Typography>
-                  </Box>
-                </MenuItem>
-              ))}
-            </Menu>
             <Switch checked={mode === 'dark'} onChange={toggleTheme} sx={{ ml: 2 }} />
           </Box>
           {/* Mobile nav */}

@@ -1,7 +1,8 @@
 import axios from 'axios';
 
 const api = axios.create({
-  baseURL: 'https://loan-app-mbcy.onrender.com/api', // <-- use your deployed backend URL
+  baseURL: 'https://loan-app-mbcy.onrender.com',
+  // baseURL: 'http://localhost:8080/api',
 });
 
 api.interceptors.request.use((config) => {
