@@ -5,6 +5,9 @@ A modern frontend web application built with **React** and **Material UI**, feat
 > *A comprehensive Loan Management platform for users and admins, with beautiful UI, secure authentication, and advanced analytics.*
 
 ---
+## Git hub
+🔗 **Frontend GitHub Repo:** https://github.com/nayanhajare/Loan-App-frontend
+🔗 **Backend GitHub Repo:**https://github.com/nayanhajare/Loan-App-Backend
 
 ## 🚀 Live Demo
 
@@ -28,8 +31,8 @@ A modern frontend web application built with **React** and **Material UI**, feat
 
 ## 🎥 Video Walkthrough
 
-<!-- Add a link to your video demo here -->
-
+Project Walkthrough :https://youtu.be/5cf7nzyn-P8
+Project based question : https://youtu.be/zrRxu85oIuw
 ---
 
 ## 🛠 Features
