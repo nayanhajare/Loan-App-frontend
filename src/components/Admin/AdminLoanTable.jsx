@@ -53,12 +53,32 @@ const AdminLoanTable = () => {
     fetchLoans();
   };
 
+  // Export filtered loans as CSV
+  const handleExportCSV = () => {
+    const header = 'User,Amount,Status,Date\n';
+    const rows = filteredLoans.map(l => [
+      (l.user?.name || l.user || ''),
+      l.amount,
+      l.status,
+      new Date(l.createdAt).toLocaleDateString()
+    ].join(','));
+    const csv = header + rows.join('\n');
+    const blob = new Blob([csv], { type: 'text/csv' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'loans.csv';
+    a.click();
+    URL.revokeObjectURL(url);
+  };
+
   return (
     <Paper sx={{ p: 2, mb: 2, bgcolor: 'background.paper' }}>
       <Stack direction="row" spacing={2} mb={2} alignItems="center">
         <TextField label="Search by user or status" value={filter} onChange={e => setFilter(e.target.value)} variant="outlined" />
         <Button variant="contained" color="success" onClick={handleBulkApprove} disabled={!selected.length}>Bulk Approve</Button>
         <Button variant="contained" color="error" onClick={handleBulkReject} disabled={!selected.length}>Bulk Reject</Button>
+        <Button variant="contained" onClick={handleExportCSV}>Export CSV</Button>
       </Stack>
       <TableContainer>
         <Table>
