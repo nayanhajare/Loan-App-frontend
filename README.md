@@ -17,7 +17,7 @@ A modern frontend web application built with **React** and **Material UI**, feat
 ![Dashboard](src/assets/2025-07-19.png)
 ![Login](src/assets/2025-07-19%20(1).png)
 ![Register](src/assets/2025-07-19%20(2).png)
-![Admin Analytics](src/assets/2025-07-19%20(3).png)
+![Admin Analytics]![alt text](src/assets/image.png)
 ![Loan Application](src/assets/2025-07-19%20(4).png)
 ![KYC Upload](src/assets/2025-07-19%20(5).png)
 ![User Profile](src/assets/2025-07-19%20(6).png)
